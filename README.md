@@ -1,5 +1,5 @@
 # blockchain-chat-app
-Developing Dapp which allows communication between accounts on the blockchain and also send ether via chat 
+Developing Dapp which allows communication between accounts on the blockchain and also send ether via chat. The following are the members of my group
 
 1. Abhijit Vempati, 
 2. Avinash Matcha,
