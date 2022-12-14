@@ -229,3 +229,25 @@ body {
   margin-top: 15px;
   overflow: scroll;
 }
+
+.senderAdd {
+  padding: 15px;
+  width: 500px;
+  margin-top: 40px;
+  /* margin: 10px; */
+  background: lightblue;
+}
+
+.recipientAdd {
+  margin-top: 50px;
+  padding: 15px;
+  width: 500px;
+  background: #e2f0d9;
+}
+
+.content {
+  width: 500px;
+  margin-top: 8px;
+  padding: 20px;
+  background-color: white;
+}

@@ -48,6 +48,8 @@ class Chat extends Component {
             accountRequesting: '',
             accountRequested: '',
             valueRequested: 0,
+            senderFlag:false,
+            recipientFlag:false
         }
     }
 
@@ -415,33 +417,102 @@ class Chat extends Component {
                         </div>
                     </div>
                     <div class="col-5 right-block">
-                        <h3>Blockchain state</h3>
-                        <p>Number of blocks: { this.state.nbBlocks }</p>
-                        <p>Last transaction gas: { this.state.lastGas }</p>
-                        <div class="sender-block blockchain-block">
-                            <p><b>Sender address:</b></p>
-                            <p>{ this.state.account }</p>
-                            <p>Number of transactions: { this.state.accountNbTransactions }</p>
-                            <p>Wallet balance: { this.state.accountBalance } ETH</p>
-                        </div>
-                        <div class="recip-block blockchain-block">
-                            <p><b>Recipient address:</b></p>
-                            <p>{ this.state.otherAccount }</p>
-                            <p>Number of transactions: { this.state.otherAccountNbTransactions }</p>
-                            <p>Wallet balance: { this.state.otherAccountBalance } ETH</p>
-                        </div>
+              <h3>Blockchain State</h3>
+              <p
+                style={{
+                  background: "red",
+                  display: "inline-block",
+                  padding: "7px",
+                  fontSize: "14px",
+                  background: "#43425d",
+                  color: "white",
+                }}
+              >
+                Number of blocks : {this.state.nbBlocks}
+              </p>
+              <br></br>
+              <p
+                style={{
+                  background: "red",
+                  display: "inline-block",
+                  padding: "7px",
+                  fontSize: "14px",
 
-                        <div class="alert-transac">
-                            { this.displayEtherTransactionStatus() }
-                        </div>
-                        <div class="alert-request">
-                            { this.displayAskEtherPopUp() }
-                        </div>
-                        
-                    </div>
+                  background: "rgb(152 85 74)",
+                  color: "white",
+                }}
+              >
+                Last transaction gas : {this.state.lastGas}
+              </p>
+
+              <div className="senderAdd">
+                <span>Sender's Information</span>
+                <button
+                  style={{
+                    float: "right",
+                    border: "none",
+                    background: "lightblue",
+                  }}
+                  onClick={() =>
+                    this.setState({ senderFlag: !this.state.senderFlag })
+                  }
+                >
+                  >
+                </button>
+              </div>
+
+              {this.state.senderFlag && (
+                <div className="content">
+                  <p>
+                    <b>Sender address:</b>
+                  </p>
+                  <p>{this.state.account}</p>
+                  <p>
+                    Number of transactions: {this.state.accountNbTransactions}
+                  </p>
+                  <p>Wallet balance: {this.state.accountBalance} ETH</p>
+                </div>
+              )}
+
+              <div className="recipientAdd">
+                <span>Recipient's Information</span>
+                <button
+                  style={{
+                    float: "right",
+                    border: "none",
+                    background: "#e2f0d9",
+                  }}
+                  onClick={() =>
+                    this.setState({ recipientFlag: !this.state.recipientFlag })
+                  }
+                >
+                  >
+                </button>
+              </div>
+              {this.state.recipientFlag && (
+                <div className="content">
+                  <p>
+                    <b>Recipient address:</b>
+                  </p>
+                  <p>{this.state.otherAccount}</p>
+                  <p>
+                    Number of transactions:{" "}
+                    {this.state.otherAccountNbTransactions}
+                  </p>
+                  <p>Wallet balance: {this.state.otherAccountBalance} ETH</p>
+                </div>
+              )}
+
+              <div class="alert-transac">
+                {this.displayEtherTransactionStatus()}
+              </div>
+              <div class="alert-request">{this.displayAskEtherPopUp()}</div>
+            </div>
+          </div>
+                    
+
                 </div>
                 
-                </div>
         </body>)
     }
 
